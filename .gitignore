@@ -1,0 +1,29 @@
+ 
+# Ignore WordPress configuration file
+wp-config.php
+
+# Ignore cache, temporary, and backup folders
+wp-content/upgrade/
+wp-content/updraft/
+wp-content/logs/
+wp-content/cache/
+
+# Ignore media uploads
+wp-content/uploads/
+
+# Optionally ignore fonts if they're not required for tracking
+wp-content/fonts/
+
+# Ignore OS, editor, and environment files
+*.log
+*.sql
+*.sqlite
+*.DS_Store
+*.env
+
+# Ignore sensitive and server config files
+.htaccess
+sftp-config.json
+
+# Ignore other unnecessary files
+index.php
