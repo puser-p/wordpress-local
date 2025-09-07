@@ -1,0 +1,19 @@
+.fl-module-box:before,
+.fl-module-box:after {
+	position: absolute;
+}
+a.fl-module-box {
+	text-decoration: none;
+}
+
+/* Zero margins for top level boxes */
+.fl-builder-content > .fl-module-box {
+	margin: 0;
+}
+
+/* Zero margins for child modules */
+.fl-module-box :where( .fl-module ),
+.fl-module-box :where( .fl-module-content ),
+.fl-module-box.fl-block > * {
+	margin: 0;
+}

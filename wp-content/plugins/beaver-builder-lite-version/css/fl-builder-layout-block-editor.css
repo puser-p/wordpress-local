@@ -1,0 +1,16 @@
+/**
+ * Base CSS used by all modules in the block editor. This file is
+ * only rendered as part of the layout CSS when using modules in
+ * the block editor as blocks.
+ */
+
+.fl-module,
+.fl-module:before,
+.fl-module:after,
+.fl-module *,
+.fl-module *:before,
+.fl-module *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}

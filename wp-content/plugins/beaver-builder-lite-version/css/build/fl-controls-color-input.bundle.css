@@ -1,0 +1,222 @@
+.fl-controls-dialog {
+  box-sizing: border-box;
+}
+.fl-controls-dialog.fl-appearance-none {
+  background: transparent;
+  padding: 0;
+  border: none;
+  transform-origin: center top;
+  transition-property: scale, overlay, display;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-in-out;
+  transition-behavior: allow-discrete;
+}
+@starting-style {
+  .fl-controls-dialog.fl-appearance-none {
+    scale: 0;
+  }
+}
+.fl-controls-dialog.fl-appearance-none[open] {
+  scale: 1;
+}
+.fl-controls-dialog.fl-appearance-none::backdrop {
+  background: transparent;
+}
+.fl-controls-dialog.fl-appearance-panel {
+  --radius: 8px;
+  background: white;
+  padding: 0;
+  border: none;
+  place-content: start stretch;
+  border-radius: var(--radius);
+  scale: 0;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0);
+  overflow: visible;
+  transform-origin: center top;
+  transition-property: scale, overlay, display;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-in-out;
+  transition-behavior: allow-discrete;
+}
+@starting-style {
+  .fl-controls-dialog.fl-appearance-panel {
+    scale: 0;
+  }
+}
+.fl-controls-dialog.fl-appearance-panel[open] {
+  scale: 1;
+  display: grid;
+  border: 1px solid rgb(215, 215, 215);
+  box-shadow: 0px 1.7px 1.1px -15px rgba(0, 0, 0, 0.022), 0px 3.9px 2.5px -15px rgba(0, 0, 0, 0.033), 0px 6.7px 4.3px -15px rgba(0, 0, 0, 0.04), 0px 10.3px 6.6px -15px rgba(0, 0, 0, 0.047), 0px 15.2px 9.7px -15px rgba(0, 0, 0, 0.053), 0px 22.3px 14.3px -15px rgba(0, 0, 0, 0.06), 0px 33.5px 21.4px -15px rgba(0, 0, 0, 0.067), 0px 53.4px 34.1px -15px rgba(0, 0, 0, 0.078), 0px 100px 64px -15px rgba(0, 0, 0, 0.1);
+}
+.fl-controls-dialog.fl-appearance-panel::backdrop {
+  background: transparent;
+}
+.fl-range-input:where(input[type=range]) {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  cursor: pointer;
+  inline-size: 100%;
+  min-height: var(--fl-builder-target-size);
+  margin: 0;
+  --track-size: 18px;
+  --thumb-size: 18px;
+  --thumb-color: black;
+  --track-color: lightgrey;
+  --thumb-ring: var(--bg-color);
+  --thumb-shadow: 0 0 0 2px var(--thumb-ring);
+}
+.fl-range-input:where(input[type=range]):focus-visible {
+  outline: none;
+}
+.fl-range-input:where(input[type=range]):focus-visible::-webkit-slider-thumb {
+  box-shadow: var(--thumb-shadow), 0 0 0 4px var(--accent-color);
+}
+.fl-range-input:where(input[type=range]):focus-visible::-moz-range-thumb {
+  box-shadow: var(--thumb-shadow), 0 0 0 4px var(--accent-color);
+}
+.fl-range-input:where(input[type=range])::-webkit-slider-runnable-track {
+  background: var(--track-color);
+  block-size: var(--track-size);
+  border-radius: calc(var(--track-size) / 2);
+}
+.fl-range-input:where(input[type=range])::-moz-range-track {
+  background: var(--track-color);
+  block-size: var(--track-size);
+  border-radius: calc(var(--track-size) / 2);
+}
+.fl-range-input:where(input[type=range])::-webkit-slider-thumb {
+  border: none;
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-block: calc(0px - (var(--thumb-size) / 2 - var(--track-size) / 2)); /* Centers thumb on the track */
+  background-color: var(--thumb-color);
+  box-shadow: var(--thumb-shadow);
+  height: var(--thumb-size);
+  width: var(--thumb-size);
+  border-radius: calc(var(--thumb-size) / 2);
+}
+.fl-range-input:where(input[type=range])::-moz-range-thumb {
+  border: none;
+  background-color: var(--thumb-color);
+  box-shadow: var(--thumb-shadow);
+  block-size: var(--thumb-size);
+  inline-size: var(--thumb-size);
+  border-radius: calc(var(--thumb-size) / 2);
+}
+.fl-range-input:where(input[type=range]):focus {
+  background-color: transparent !important;
+}
+.fl-range-input:where(input[type=range]).hue-slider {
+  --thumb-color: rgb(255, 0, 0);
+  --track-color: -webkit-linear-gradient(left, rgb(255, 0, 0), rgb(255, 128, 0), rgb(255, 255, 0), rgb(128, 255, 0), rgb(0, 255, 0), rgb(0, 255, 128), rgb(0, 255, 255), rgb(0, 128, 255), rgb(0, 0, 255), rgb(128, 0, 255), rgb(255, 0, 255), rgb(255, 0, 128), rgb(255, 0, 0));
+}
+.fl-range-input:where(input[type=range]).sat-slider {
+  --hue: 360;
+  --sat: 50%;
+  --thumb-color: hsl( var(--hue), var(--sat), 50%);
+  --track-color: -webkit-linear-gradient(left, hsl( var(--hue), 0%, 50%), hsl( var(--hue), 100%, 50%) );
+}
+.fl-range-input:where(input[type=range]).light-slider {
+  --hue: 360;
+  --sat: 50%;
+  --brightness: 0%;
+  --thumb-color: hsl( var(--hue), var(--sat), var(--brightness));
+  --track-color: -webkit-linear-gradient( left, hsl( var(--hue), var(--sat), 0%), hsl( var(--hue), var(--sat), 50%), hsl( var(--hue), var(--sat), 100%) );
+}
+.fl-range-input:where(input[type=range]).whiteness-slider {
+  --hue: 360;
+  --whiteness: 0%;
+  --thumb-color: hwb( var(--hue) clamp( 0, var(--whiteness), 50 ) 3 );
+  --track-color: -webkit-linear-gradient( left, hwb( var(--hue) 0% 2% ), hwb( var(--hue) 100% 2% ) );
+}
+.fl-range-input:where(input[type=range]).alpha-slider {
+  --hue: 360;
+  --sat: 50%;
+  --brightness: 0%;
+  --thumb-color: hsl( var(--hue), var(--sat), var(--brightness));
+  --checker-color: #fff;
+  --checker-size: 8px;
+  --slider-direction: 90deg;
+  --half: calc( var(--checker-size) / 2 );
+  --neg-half: calc( 0px - var(--half) );
+  --track-bg: linear-gradient(var(--slider-direction), hwb( var(--hue) 0 5 / 0 ), hwb( var(--hue) 0 0 / 1 ) ),
+  			linear-gradient(45deg, var(--checker-color) 25%, transparent 25%),
+  			linear-gradient(135deg, var(--checker-color) 25%, transparent 25%),
+  			linear-gradient(45deg, transparent 75%, var(--checker-color) 75%),
+  			linear-gradient(135deg, transparent 75%, var(--checker-color) 75%);
+  --bg-size: 100% 100%,
+  			var(--checker-size) var(--checker-size),
+  			var(--checker-size) var(--checker-size),
+  			var(--checker-size) var(--checker-size),
+  			var(--checker-size) var(--checker-size);
+  --bg-position: 0 0, 0 0, var(--half) 0, var(--half) var(--neg-half), 0px var(--half);
+}
+.fl-range-input:where(input[type=range]).alpha-slider::-webkit-slider-runnable-track {
+  background-image: var(--track-bg);
+  background-size: var(--bg-size);
+  background-position: var(--bg-position);
+}
+.fl-range-input:where(input[type=range]).alpha-slider::-moz-range-track {
+  background-image: var(--track-bg);
+  background-size: var(--bg-size);
+  background-position: var(--bg-position);
+}
+.fl-sortable-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.fl-controls-popover-button {
+  display: grid;
+  place-content: center;
+}
+
+[popover].fl-popover {
+  --radius: 8px;
+  box-sizing: border-box;
+  place-content: start stretch;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius);
+  scale: 0;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0);
+  overflow: visible;
+  transform-origin: center top;
+  transition-property: box-shadow, scale, translate, overlay, display;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-in-out;
+  transition-behavior: allow-discrete;
+}
+@starting-style {
+  [popover].fl-popover {
+    scale: 0;
+    box-shadow: 0 0 0 transparent;
+  }
+}
+[popover].fl-popover:popover-open {
+  scale: 1;
+  display: grid;
+  border: 1px solid grey;
+  box-shadow: 0px 1.7px 1.1px -15px rgba(0, 0, 0, 0.022), 0px 3.9px 2.5px -15px rgba(0, 0, 0, 0.033), 0px 6.7px 4.3px -15px rgba(0, 0, 0, 0.04), 0px 10.3px 6.6px -15px rgba(0, 0, 0, 0.047), 0px 15.2px 9.7px -15px rgba(0, 0, 0, 0.053), 0px 22.3px 14.3px -15px rgba(0, 0, 0, 0.06), 0px 33.5px 21.4px -15px rgba(0, 0, 0, 0.067), 0px 53.4px 34.1px -15px rgba(0, 0, 0, 0.078), 0px 100px 64px -15px rgba(0, 0, 0, 0.1);
+}
+[popover].fl-popover:popover-open ::backdrop {
+  background: transparent;
+}
+
+.fl-modal-dialog {
+  padding: 0;
+  border: 1px solid grey;
+  overflow: visible;
+  box-shadow: 0px 1.7px 1.1px -15px rgba(0, 0, 0, 0.022), 0px 3.9px 2.5px -15px rgba(0, 0, 0, 0.033), 0px 6.7px 4.3px -15px rgba(0, 0, 0, 0.04), 0px 10.3px 6.6px -15px rgba(0, 0, 0, 0.047), 0px 15.2px 9.7px -15px rgba(0, 0, 0, 0.053), 0px 22.3px 14.3px -15px rgba(0, 0, 0, 0.06), 0px 33.5px 21.4px -15px rgba(0, 0, 0, 0.067), 0px 53.4px 34.1px -15px rgba(0, 0, 0, 0.078), 0px 100px 64px -15px rgba(0, 0, 0, 0.1);
+}
+.fl-modal-dialog[open] {
+  display: grid;
+}
+.fl-modal-dialog::backdrop {
+  background: transparent;
+}
+

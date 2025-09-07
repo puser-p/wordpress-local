@@ -1,0 +1,15 @@
+.fl-builder-content .fl-rich-text strong {
+	font-weight: bold;
+}
+
+/**
+ * Remove bottom margins from the last paragraph
+ * in v2+ text editor modules.
+ */
+.fl-module.fl-rich-text p:last-child {
+	margin-bottom: 0;
+}
+/* Handle overlays in the builder */
+.fl-builder-edit .fl-module.fl-rich-text p:not(:has(~ *:not(.fl-block-overlay))) {
+	margin-bottom: 0;
+}
